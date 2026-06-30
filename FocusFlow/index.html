@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFlow Pomodoro Analytics</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
+</head>
+    <div class="top-controls">
+        <button id="openSettingsBtn" class="icon-btn" title="Settings">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </button>
+        <div class="theme-switcher">
+            <button class="theme-btn active" data-theme-val="dark" title="Minimalist Dark"></button>
+            <button class="theme-btn" data-theme-val="light" title="Minimalist Light"></button>
+            <button class="theme-btn" data-theme-val="cream" title="Minimalist Cream"></button>
+            <button class="theme-btn" data-theme-val="pink" title="Minimalist Pink"></button>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="mode-tabs">
+            <button class="mode-tab active" data-mode="focus">Focus</button>
+            <button class="mode-tab" data-mode="shortBreak">Short Break</button>
+            <button class="mode-tab" data-mode="longBreak">Long Break</button>
+        </div>
+        
+        <div class="timer-container">
+            <div class="timer-circle">
+                <span id="timeDisplay">25:00</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="startBtn">Start</button>
+            <button id="pauseBtn">Pause</button>
+            <button id="stopBtn">Stop</button>
+        </div>
+        
+        <button id="toggleAnalyticsBtn" class="pill-btn secondary-btn">View Analytics</button>
+    </main>
+
+    <section id="analyticsPanel" class="analytics-panel">
+        <div class="analytics-header">
+            <h3>Productivity Analytics</h3>
+            <button id="closeAnalyticsBtn">Close</button>
+        </div>
+        <div class="analytics-content">
+            <div class="chart-container">
+                <div class="bar-chart" id="barChart">
+                    <!-- Dynamic Bars -->
+                </div>
+            </div>
+            <div class="data-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Sessions</th>
+                            <th>Total Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sessionHistory">
+                        <!-- Dynamic Rows -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Settings Modal -->
+    <div id="settingsOverlay" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Settings</h3>
+                <button id="closeSettingsBtn" class="icon-btn modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label>Focus Duration (min)</label>
+                    <input type="number" id="focusTimeInput" value="25" min="1" max="120">
+                </div>
+                <div class="setting-group">
+                    <label>Short Break (min)</label>
+                    <input type="number" id="shortBreakInput" value="5" min="1" max="60">
+                </div>
+                <div class="setting-group">
+                    <label>Long Break (min)</label>
+                    <input type="number" id="longBreakInput" value="15" min="1" max="60">
+                </div>
+                <button id="saveSettingsBtn" class="pill-btn primary-save">Save Preferences</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
